@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suman Python Todo App</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="page-shell">
+  <header class="hero">
+    <div class="hero-brand">
+      <img class="logo" src="{{ url_for('static', filename='images/suman-logo.png') }}" alt="Suman AWS and DevOps logo">
+      <div>
+        <h1>Learn AWS cloud and DevOps with Suman</h1>
+        <p>Simple • Practical • Beginner-friendly</p>
+      </div>
+    </div>
+    <div class="hero-profile-wrap">
+      <img class="profile" src="{{ url_for('static', filename='images/suman-profile.png') }}" alt="Suman profile">
+    </div>
+  </header>
+
+  <main>
+    <section class="intro-card">
+      <div>
+        <span class="eyebrow">TASK MANAGEMENT</span>
+        <h2>My Todo List</h2>
+        <p>Create, organize and complete your daily tasks.</p>
+      </div>
+      <div class="stats">
+        <div><strong id="totalCount">0</strong><span>Total</span></div>
+        <div><strong id="pendingCount">0</strong><span>Pending</span></div>
+        <div><strong id="completedCount">0</strong><span>Completed</span></div>
+      </div>
+    </section>
+
+    <section class="form-card">
+      <span class="eyebrow">TASK DETAILS</span>
+      <h2 id="formTitle">Add a New Task</h2>
+      <form id="taskForm">
+        <input type="hidden" id="taskId">
+        <div class="form-grid">
+          <div class="field full">
+            <label for="title">Task title <span>*</span></label>
+            <input id="title" maxlength="120" required placeholder="e.g. Complete Docker practice">
+          </div>
+          <div class="field full">
+            <label for="description">Description</label>
+            <textarea id="description" rows="3" placeholder="Optional task description"></textarea>
+          </div>
+          <div class="field">
+            <label for="dueDate">Due date <span>*</span></label>
+            <input id="dueDate" type="date" required>
+          </div>
+          <div class="form-actions">
+            <button class="btn primary" type="submit" id="saveBtn">＋ Add Task</button>
+            <button class="btn ghost hidden" type="button" id="cancelBtn">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section class="tasks-section">
+      <div class="toolbar">
+        <div>
+          <span class="eyebrow">YOUR TASKS</span>
+          <h2>Task List</h2>
+        </div>
+        <div class="filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="pending">Pending</button>
+          <button class="filter" data-filter="completed">Completed</button>
+        </div>
+      </div>
+      <div id="taskList" class="task-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Python + Flask + JSON</span>
+    <span>No database • Simple learning project</span>
+  </footer>
+</div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

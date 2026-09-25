@@ -1,0 +1,9 @@
+services:
+  todo-app:
+    build: .
+    container_name: suman-python-todo-app
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
