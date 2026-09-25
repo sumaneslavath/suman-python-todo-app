@@ -10,6 +10,6 @@ COPY templates ./templates
 COPY static ./static
 COPY data ./data
 
-EXPOSE 8080
+EXPOSE 3500
 
 CMD ["python", "app.py"]
